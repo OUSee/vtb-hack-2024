@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<LayoutComponent />}>
+        <Route path="/vtb-hack-2024/" element={<LayoutComponent />}>
           <Route
             path="/"
             element={<HeroPG waypoint={"/sign-up"} spareWaypoint={"/login"} />}
