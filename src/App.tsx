@@ -15,8 +15,9 @@ import { TransActionPage } from "./one-way-pages/tansaction-approvedORrejected-p
 function App() {
   return (
     <>
+      <h1>APP</h1>
       <Routes>
-        <Route path="/vtb-hack-2024/" element={<LayoutComponent />}>
+        <Route path="/" element={<LayoutComponent />}>
           <Route
             path="/"
             element={<HeroPG waypoint={"/sign-up"} spareWaypoint={"/login"} />}
