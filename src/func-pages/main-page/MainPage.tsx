@@ -24,7 +24,7 @@ export const MainPage = () => {
       return;
     } else {
       setPopUpData({
-        waypoint: "/bind-card",
+        waypoint: "/vtb-hack-2024/bind-card",
         msg: "Привяжите карту",
         desc: "Привяжите карту банка чтобы иметь возможность совершать покупки на бирже",
         img: "../../assets/creditCard.png",
