@@ -15,51 +15,78 @@ import { TransActionPage } from "./one-way-pages/tansaction-approvedORrejected-p
 function App() {
   return (
     <>
-      <h1>APP</h1>
       <Routes>
-        <Route path="/" element={<LayoutComponent />}>
+        <Route path="/vtb-hack-2024/" element={<LayoutComponent />}>
           <Route
-            path="/"
-            element={<HeroPG waypoint={"/sign-up"} spareWaypoint={"/login"} />}
+            path="/vtb-hack-2024/"
+            element={
+              <HeroPG
+                waypoint={"/vtb-hack-2024/sign-up"}
+                spareWaypoint={"/vtb-hack-2024/login"}
+              />
+            }
           />
           <Route
-            path="/login"
-            element={<LogInPage waypoint="/auth" spareWaypoint="/sign-up" />}
-          ></Route>
-          <Route
-            path="/sign-up"
-            element={<SignUpPage waypoint="/auth" spareWaypoint="/login" />}
-          ></Route>
-          <Route
-            path="/auth"
-            element={<AuthPage waypoint="/psw-create" />}
-          ></Route>
-          <Route
-            path="/psw-create"
-            element={<CreatePswPage waypoint="/psw-enter" />}
-          ></Route>
-          <Route
-            path="/psw-enter"
-            element={<PwdEntryPage waypoint="/home" />}
-          ></Route>
-          <Route path="/home" element={<MainPage />}></Route>
-          <Route
-            path="/bind-card"
-            element={<BindCardPage waypoint="/buy" spareWaypoint="/home" />}
-          ></Route>
-          <Route
-            path="/buy"
+            path="/vtb-hack-2024/login"
             element={
-              <BuyCryptoPage waypoint="/confirm" spareWaypoint="/home" />
+              <LogInPage
+                waypoint="/vtb-hack-2024/auth"
+                spareWaypoint="/vtb-hack-2024/sign-up"
+              />
             }
           ></Route>
           <Route
-            path="/confirm"
-            element={<AuthPage waypoint="/transaction" spareWaypoint="/buy" />}
+            path="/vtb-hack-2024/sign-up"
+            element={
+              <SignUpPage
+                waypoint="/vtb-hack-2024/auth"
+                spareWaypoint="/vtb-hack-2024/login"
+              />
+            }
           ></Route>
           <Route
-            path="/transaction"
-            element={<TransActionPage waypoint="/home" />}
+            path="/vtb-hack-2024/auth"
+            element={<AuthPage waypoint="/vtb-hack-2024/psw-create" />}
+          ></Route>
+          <Route
+            path="/vtb-hack-2024/psw-create"
+            element={<CreatePswPage waypoint="/vtb-hack-2024/psw-enter" />}
+          ></Route>
+          <Route
+            path="/vtb-hack-2024/psw-enter"
+            element={<PwdEntryPage waypoint="/vtb-hack-2024/home" />}
+          ></Route>
+          <Route path="/vtb-hack-2024/home" element={<MainPage />}></Route>
+          <Route
+            path="/vtb-hack-2024/bind-card"
+            element={
+              <BindCardPage
+                waypoint="/vtb-hack-2024/buy"
+                spareWaypoint="/vtb-hack-2024/home"
+              />
+            }
+          ></Route>
+          <Route
+            path="/vtb-hack-2024/buy"
+            element={
+              <BuyCryptoPage
+                waypoint="/vtb-hack-2024/confirm"
+                spareWaypoint="/vtb-hack-2024/home"
+              />
+            }
+          ></Route>
+          <Route
+            path="/vtb-hack-2024/confirm"
+            element={
+              <AuthPage
+                waypoint="/vtb-hack-2024/transaction"
+                spareWaypoint="/vtb-hack-2024/buy"
+              />
+            }
+          ></Route>
+          <Route
+            path="/vtb-hack-2024/transaction"
+            element={<TransActionPage waypoint="/vtb-hack-2024/home" />}
           ></Route>
         </Route>
       </Routes>
