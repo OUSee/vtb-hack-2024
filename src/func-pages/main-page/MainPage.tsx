@@ -6,7 +6,9 @@ import styles from "./styles.module.css";
 import { PopUpCMP } from "../../components/pop-up/PopUp";
 
 export const MainPage = () => {
-  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+  const [isCardBindPopUpOpen, setIsCBPopUpOpen] = useState(false);
+  const [isFriendInvitePopUpOpen, setIsFIPopUpOpen] = useState(false);
+
   const [popUpData, setPopUpData] = useState({
     waypoint: "",
     msg: "",
@@ -14,8 +16,12 @@ export const MainPage = () => {
     img: "",
   });
 
-  const handlePopUpOpen = () => {
-    setIsPopUpOpen(true);
+  const handleCBPopUpOpen = () => {
+    setIsCBPopUpOpen(true);
+  };
+
+  const handleFIPopUpOpen = () => {
+    setIsFIPopUpOpen(true);
   };
 
   const toggleCardBindPopup = () => {
@@ -29,13 +35,35 @@ export const MainPage = () => {
         desc: "Привяжите карту банка чтобы иметь возможность совершать покупки на бирже",
         img: "../../assets/creditCard.png",
       });
-      setTimeout(handlePopUpOpen, 1500);
-      // localStorage.setItem("isCardBound", "true");
+      setTimeout(() => {
+        handleCBPopUpOpen();
+      }, 1500);
+      localStorage.setItem("isCardBound", "true");
+    }
+  };
+
+  const toggleInviteFrriendPopup = () => {
+    const isInvited = localStorage.getItem("isInvited");
+    const isBind = localStorage.getItem("isCardBound");
+    if (isBind && !isInvited) {
+      setPopUpData({
+        waypoint: "/vtb-hack-2024/share-app",
+        msg: "Поздравляем с первой сделкой",
+        desc: "Рекомендуйте приложение друзьям!",
+        img: "../../assets/..png",
+      });
+      setTimeout(() => {
+        handleFIPopUpOpen();
+      }, 1500);
+      localStorage.setItem("isIvited", "true");
+    } else {
+      return;
     }
   };
 
   useEffect(() => {
     toggleCardBindPopup();
+    toggleInviteFrriendPopup();
   }, []);
   return (
     <div className={styles.container + " " + "page"}>
@@ -48,7 +76,7 @@ export const MainPage = () => {
         className={
           styles.popUp +
           " " +
-          (isPopUpOpen ? styles.popUpVisible : styles.popUpHidden)
+          (isCardBindPopUpOpen ? styles.popUpVisible : styles.popUpHidden)
         }
       >
         <PopUpCMP
@@ -56,7 +84,23 @@ export const MainPage = () => {
           waypoint={popUpData.waypoint}
           desc={popUpData.desc}
           img="https://www.vtb.ru/media-files/vtb.ru/sitepages/personal/karty/kreditnye/Vozmozhnostey_1x.png"
-          setPopupState={setIsPopUpOpen}
+          setPopupState={setIsCBPopUpOpen}
+        />
+      </div>
+
+      <div
+        className={
+          styles.popUp +
+          " " +
+          (isFriendInvitePopUpOpen ? styles.popUpVisible : styles.popUpHidden)
+        }
+      >
+        <PopUpCMP
+          msg={popUpData.msg}
+          waypoint={popUpData.waypoint}
+          desc={popUpData.desc}
+          img="https://www.vtb.ru/media-files/vtb.ru/sitepages/personal/karty/kreditnye/Vozmozhnostey_1x.png"
+          setPopupState={setIsFIPopUpOpen}
         />
       </div>
     </div>

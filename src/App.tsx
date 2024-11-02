@@ -11,6 +11,7 @@ import { AuthPage } from "./one-way-pages/auth-page/AuthPage";
 import { BindCardPage } from "./one-way-pages/bind-card-page/BindCardPage";
 import { BuyCryptoPage } from "./func-pages/buy-page/BuyCryptoPage";
 import { TransActionPage } from "./one-way-pages/tansaction-approvedORrejected-page/TranSactionPage";
+import { ShareAppPG } from "./one-way-pages/share-app/ShareAppPage";
 
 function App() {
   return (
@@ -87,6 +88,10 @@ function App() {
           <Route
             path="/vtb-hack-2024/transaction"
             element={<TransActionPage waypoint="/vtb-hack-2024/home" />}
+          ></Route>
+          <Route
+            path="/vtb-hack-2024/share-app"
+            element={<ShareAppPG waypoint="/vtb-hack-2024/home" />}
           ></Route>
         </Route>
       </Routes>
