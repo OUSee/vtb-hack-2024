@@ -38,7 +38,6 @@ export const MainPage = () => {
       setTimeout(() => {
         handleCBPopUpOpen();
       }, 1500);
-      localStorage.setItem("isCardBound", "true");
     }
   };
 
